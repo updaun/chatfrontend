@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from 'react';
-import { updateChatReducer } from './reducers';
+import { updateChatReducer, updateChatState } from './reducers';
 
 const reduceReducers = (...reducers) => (prevState, value, ...args) => {
     reducers.reduce(
@@ -8,9 +8,7 @@ const reduceReducers = (...reducers) => (prevState, value, ...args) => {
     )
 }
 
-const combineReducers = reduceReducers(
-    ...updateChatReducer
-);
+const combineReducers = reduceReducers(updateChatReducer);
 
 const initialState = {
     ...updateChatState,
@@ -20,7 +18,7 @@ const store = createContext(initialState);
 const {Provider} = store;
 
 const StoreProvider = ({children}) => {
-    const [state, dispatch] = userReducer(combineReducers, {});
+    const [state, dispatch] = useReducer(combineReducers, {});
 
     return <Provider value={{state, dispatch}}>{children}</Provider>;
 }
