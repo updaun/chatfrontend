@@ -84,7 +84,7 @@ button {
     .input-field {
         width: 100%;
         margin-bottom: 10px;
-        padding: 10px 0;
+        padding: 10px;
         background-color: transparent;
         border: none;
         border-bottom: 1px solid rgba(white, 0.1);
@@ -173,3 +173,19 @@ button {
     }
 }
 
+.errorHolder {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 10px;
+        cursor: pointer;
+    }
+}
